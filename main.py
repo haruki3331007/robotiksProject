@@ -1,27 +1,58 @@
 import pygame
+import random
+import math
+from value import *
+import mapFunc
+import player
 
 # Initialize the pygame
 pygame.init()
 
 # create the screen
-screen = pygame.display.set_mode((800, 600))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Title
 pygame.display.set_caption('Space Invaders')
 
+# initialize
+mapInfo = mapFunc.mapFunc(screen)
+player = player.player(screen)
+
 
 # Game Loop
 running = True
+ang=0
+move=0
 while running:
     # RGB = Red, Green, Blue
     screen.fill((0, 0, 0))
-    # playerX += 0.1
+    mapInfo.drawMinimap()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    
-    # Score
-    font = pygame.font.SysFont(None, 32) # フォントの作成　Noneはデフォルトのfreesansbold.ttf
-    score = font.render("Score : ", True, (255,255,255)) # テキストを描画したSurfaceの作成
-    screen.blit(score, (20,50))
+        
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                ang=-0.5
+            if event.key == pygame.K_RIGHT:
+                ang=+0.5
+            if event.key == pygame.K_UP:
+                move=0.05
+
+        if event.type == pygame.KEYUP:
+            if event.key in (pygame.K_LEFT, pygame.K_RIGHT):
+                ang=0
+            if event.key == pygame.K_UP:
+                move=0
+            
+    #pos = player.checkPos()
+    #if ((pos).x<=0.00 or (pos).x>=MINI_MAP_WIDTH*MINI_MAP_PIXEL or (pos).y<=0.00 or (pos).y>=MINI_MAP_HEIGHT*MINI_MAP_PIXEL):
+    #    player.moveF(-0.05)
+    #else:
+    #    move=abs(move)
+    player.changeAng(ang)
+    player.moveF(move)
+    player.drawPlayer()
+
     pygame.display.update()
