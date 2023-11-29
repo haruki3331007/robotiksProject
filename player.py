@@ -16,12 +16,21 @@ class player:
 
     def drawMinimapPlayer(self):
         pygame.draw.circle(self.screen, (255, 0, 0), (self.pos.x, self.pos.y), self.mapP/1.5)
-        view = self.pos + pygame.math.Vector3(50, 0, 0).rotate_z(self.ang-30)
-        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #y coordinate of player (Green)
-        view = self.pos + pygame.math.Vector3(50, 0, 0).rotate_z(self.ang)
-        pygame.draw.line(self.screen, (255, 0, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #x coordinate of player (Red)
-        view = self.pos + pygame.math.Vector3(50, 0, 0).rotate_z(self.ang+30)
-        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #y coordinate of player (Green)
+
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang-30)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang-20)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang-10)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang)
+        pygame.draw.line(self.screen, (255, 0, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Red)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang+10)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang+20)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
+        view = self.pos + pygame.math.Vector3(40, 0, 0).rotate_z(self.ang+30)
+        pygame.draw.line(self.screen, (0, 255, 0), (self.pos.x, self.pos.y), (view.x, view.y), width=1) #coordinate of player (Green)
 
         self.mathFunc.worldCoordinateSystem()
     

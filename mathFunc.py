@@ -26,7 +26,7 @@ class mapMathFun:
 
         self.worldmap = [[(self.map[j][i]).rotate_x(90) for i in range(self.mapW)] for j in range(self.mapH)]
         self.worldmap = np.array(self.worldmap)
-        self.worldmap = self.worldmap.repeat(WORLD_MAP_PIXEL, axis=0).repeat(WORLD_MAP_PIXEL, axis=1).repeat(WORLD_MAP_PIXEL, axis=2)
+        self.worldmap = self.worldmap.repeat(WORLD_MAP_PIXEL, axis=0).repeat(WORLD_MAP_PIXEL, axis=1).repeat(200, axis=2)
 
 
     def viewCoordinateSystem(self, camera):
@@ -44,5 +44,5 @@ class playerMathFunc:
     
     def worldCoordinateSystem(self):
         #set player to center of player positon in world map 
-        self.worldPos = pygame.math.Vector3(self.playerPos.x + WORLD_MAP_PIXEL/2, self.playerPos.y + WORLD_MAP_PIXEL/2, 0) # first position
+        self.worldPos = pygame.math.Vector3(self.playerPos.x + WORLD_MAP_PIXEL/2, self.playerPos.y + WORLD_MAP_PIXEL/2, 200) # first position
         self.worldPos  = self.worldPos.rotate_x(90)

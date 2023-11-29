@@ -26,7 +26,8 @@ ang=0
 move=0
 while running:
     # RGB = Red, Green, Blue
-    screen.fill((0, 0, 0))
+    pygame.draw.rect(screen, (135, 206, 235), (0, 0, SCREEN_WIDTH, 2*(SCREEN_HEIGHT/3)))
+    pygame.draw.rect(screen, (49, 117, 70), (0, 2*(SCREEN_HEIGHT/3), SCREEN_WIDTH, SCREEN_HEIGHT))
     mapInfo.drawMinimap()
 
     for event in pygame.event.get():
