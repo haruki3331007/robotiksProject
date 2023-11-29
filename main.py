@@ -19,6 +19,7 @@ mapInfo = mapFunc.mapFunc(screen)
 player = player.player(screen)
 
 
+
 # Game Loop
 running = True
 ang=0
@@ -34,11 +35,11 @@ while running:
         
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                ang=-0.5
+                ang=-0.8
             if event.key == pygame.K_RIGHT:
-                ang=+0.5
+                ang=+0.8
             if event.key == pygame.K_UP:
-                move=0.05
+                move=0.3
 
         if event.type == pygame.KEYUP:
             if event.key in (pygame.K_LEFT, pygame.K_RIGHT):
@@ -53,6 +54,6 @@ while running:
     #    move=abs(move)
     player.changeAng(ang)
     player.moveF(move)
-    player.drawPlayer()
+    player.drawMinimapPlayer()
 
     pygame.display.update()

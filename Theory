@@ -1,0 +1,6 @@
+# I need to
+    * make the first map haveing local coordinate system
+    * convert to world coordinate system(mini map, game world)
+    * convert to view coordinate system(camera view)
+    * convert to projection coordinate system
+    * convert to screen coordinate system
